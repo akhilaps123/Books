@@ -34,6 +34,6 @@ SELECT name AS list_of_employees FROM employee WHERE leave_days > 5
 AND department = 'sales';
 SELECT COUNT(*) AS no_of_employees FROM employee WHERE department = 'operations';
 SELECT department,COUNT(*) AS employees_count FROM employee GROUP BY department;
-SELECT department,SUM(leave_days) AS total_leaves FROM employee GROUP BY department HAVING #SUM(leave_days) > 10;
+SELECT department,SUM(leave_days) AS total_leaves FROM employee GROUP BY department HAVING SUM(leave_days) > 10;
 SELECT name FROM employee WHERE id IN (SELECT employee_id FROM exam WHERE exam_status = 'pass');
 SELECT e.name FROM employee e LEFT JOIN exam ex ON e.id=ex.employee_id WHERE ex.employee_id IS null;

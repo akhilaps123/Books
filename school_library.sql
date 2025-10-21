@@ -18,3 +18,4 @@ SHOW INDEX FROM books;
 -- Create an index on the book_name column of the books table.
 -- Show all indexes in the books table.
 
+
