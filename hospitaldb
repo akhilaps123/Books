@@ -1,0 +1,29 @@
+CREATE TABLE doctors(
+    doctor_id int PRIMARY KEY,
+    name varchar(40) NOT null,
+    specialization varchar(50) not null,
+    email varchar(30) UNIQUE NOT null,
+    phone_no varchar(15) not null,
+    experience_years int
+);
+CREATE TABLE patients(
+	patient_id int PRIMARY KEY AUTO_INCREMENT,
+	name varchar(100) NOT null,
+    gender varchar(10),
+    dob date ,
+	phone_no varchar(15),
+	blood_group varchar(10),
+	address varchar(100),
+	email varchar(60) UNIQUE
+);
+CREATE TABLE appointments(
+	appointment_id int PRIMARY KEY AUTO_INCREMENT,
+	doctor_id int NOT null,
+	patient_id int NOT null,
+    appointment_date date,
+    appointment_time time,
+	status varchar(50),
+	notes text,
+	FOREIGN KEY (doctor_id) REFERENCES doctors(doctor_id),
+	FOREIGN KEY (patient_id) REFERENCES patients(patient_id)
+);
